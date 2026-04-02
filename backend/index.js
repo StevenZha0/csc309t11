@@ -3,7 +3,10 @@ import routes from "./routes.js";
 import cors from "cors";
 import dotenv from "dotenv";
 
-dotenv.config();
+// Only load .env in development, not in production
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config();
+}
 
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 
